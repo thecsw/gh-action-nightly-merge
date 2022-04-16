@@ -42,6 +42,11 @@ git remote set-url origin https://x-access-token:${!INPUT_PUSH_TOKEN}@github.com
 git config --global user.name "$INPUT_USER_NAME"
 git config --global user.email "$INPUT_USER_EMAIL"
 
+# Because of the recent git update, 2.35.2, we have to add a
+# special exception to the git workspace for git not to freak out
+# see more here https://github.com/actions/checkout/issues/766
+git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
 set -o xtrace
 
 git fetch origin $INPUT_STABLE_BRANCH
