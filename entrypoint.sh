@@ -45,7 +45,7 @@ git config --global user.email "$INPUT_USER_EMAIL"
 # Because of the recent git update, 2.35.2, we have to add a
 # special exception to the git workspace for git not to freak out
 # see more here https://github.com/actions/checkout/issues/766
-git config --global --add safe.directory "$GITHUB_WORKSPACE"
+git config --global --add safe.directory /github/workspace
 
 set -o xtrace
 
